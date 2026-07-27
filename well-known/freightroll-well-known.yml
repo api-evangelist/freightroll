@@ -1,0 +1,19 @@
+generated: '2026-07-19'
+method: searched
+source: live probes of https://www.freightroll.com/.well-known/*
+host: https://www.freightroll.com
+notes: >-
+  The Wix front-end returns HTTP 400 for all probed /.well-known/ paths (no
+  discovery documents published). Recorded for auditability; no raw documents
+  were saved and no WellKnown scoring pointer is emitted since nothing resolved.
+documents:
+  - path: /.well-known/security.txt
+    status: 400
+  - path: /.well-known/openid-configuration
+    status: 400
+  - path: /.well-known/oauth-authorization-server
+    status: 400
+  - path: /.well-known/api-catalog
+    status: 400
+  - path: /.well-known/ai-plugin.json
+    status: 400
