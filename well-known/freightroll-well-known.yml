@@ -2,11 +2,12 @@ generated: '2026-07-19'
 method: searched
 source: live probes of https://www.freightroll.com/.well-known/*
 host: https://www.freightroll.com
-notes: >-
-  The Wix front-end returns HTTP 400 for all probed /.well-known/ paths (no
-  discovery documents published). Recorded for auditability; no raw documents
-  were saved and no WellKnown scoring pointer is emitted since nothing resolved.
-documents:
+notes: The Wix front-end returns HTTP 400 for all probed /.well-known/ paths (no discovery documents published).
+  Recorded for auditability; no raw documents were saved and no WellKnown scoring pointer is emitted since
+  nothing resolved.
+hosts:
+- host: https://www.freightroll.com
+  documents:
   - path: /.well-known/security.txt
     status: 400
   - path: /.well-known/openid-configuration
@@ -17,3 +18,8 @@ documents:
     status: 400
   - path: /.well-known/ai-plugin.json
     status: 400
+x-shape-fix:
+  converted: '2026-08-20'
+  from: documents
+  note: Rewritten into hosts[] -> documents[], the only shape well_known_docs() in score.rb reads. A served
+    .well-known surface recorded in any other shape scores as absent.
